@@ -27,6 +27,18 @@ func HomeHandler(w http.ResponseWriter, r *http.Request){
 		return
 	}
 	
+	data := map[string]interface{}{
+		"title": "I'm Learning Golang Web",
+		"content": "I'm Learning Golang Web with Kiki Yuniar K",
+	}
+	err = tmpl.Execute(w, data)
+	if err != nil {
+		// menapilkan error untuk developer
+		log.Println(err)
+		// menampilkan error untuk browser/user
+		http.Error(w, "Error is happening, keep calm", http.StatusInternalServerError)
+		return
+	}
 	
 }
 func HelloHandler(w http.ResponseWriter, r *http.Request){
