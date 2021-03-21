@@ -1,3 +1,3 @@
-module web-go
+module webgo
 
 go 1.16
